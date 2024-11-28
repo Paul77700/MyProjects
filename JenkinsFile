@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Paul77700/MyProjects.git'
+            }
+        }
+        stage('Say Hello') {
+            steps {
+                echo "Hello y'all"
+            }
+        }
+        stage('Run tests') {
+            steps {
+                dir
+            }
+        }
+        stage('Test permissions'){
+            steps{
+                mkdir test-dir
+                dir
+                del test-dir
+            }
+        }
+    }
+}
