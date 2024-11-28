@@ -8,19 +8,19 @@ pipeline {
         }
         stage('Say Hello') {
             steps {
-                echo "Hello y'all !"
+                cmd_exec('echo "Hello y\'all !"')
             }
         }
         stage('Run tests') {
             steps {
-                dir
+                cmd_exec("dir")
             }
         }
         stage('Test permissions'){
             steps{
-                mkdir test-dir
-                dir
-                del test-dir
+                cmd_exec("mkdir test-dir")
+                cmd_exec("dir")
+                cmd_exec("del test-dir")
             }
         }
     }
